@@ -81,7 +81,7 @@ const Header = ({
     try {
       const web3 = await connect();
 
-      //get address Details 
+      //get address Details
 
       await web3.eth.getAccounts((err, address) => {
         if (address) {
@@ -93,7 +93,7 @@ const Header = ({
         }
       })
 
-      //get Network Id Details 
+      //get Network Id Details
 
       await web3.eth.getChainId((err, chainId) => {
         if (chainId) {
@@ -157,86 +157,7 @@ const Header = ({
             ref={toggleRef}
           />
 
-          <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='me-auto'>
-              <Nav.Link onClick={handleNavigate} href='#about'>
-                About
-              </Nav.Link>
-              <Nav.Link onClick={handleNavigate} href='#mongoonomics'>
-                Mongoonomics
-              </Nav.Link>
-              <Nav.Link onClick={handleNavigate} href='#the-team'>
-                Team
-              </Nav.Link>
-              <Nav.Link onClick={handleNavigate} href='#story'>
-                Story
-              </Nav.Link>
-              <Nav.Link onClick={handleNavigate} href='#our-collections'>
-                Collections
-              </Nav.Link>
-              <Nav.Link onClick={handleNavigate} href='#road-map'>
-                Road Map
-              </Nav.Link>
-              <Nav.Link onClick={handleShow} href={address ? '/breeding' : '#'}>
-                Breeding
-              </Nav.Link>
-              <Nav.Link onClick={handleNavigate} href='#faq'>
-                Faq
-              </Nav.Link>
-            </Nav>
-            <ul className='social ms-auto'>
-              <li className='social-item'>
-                <a
-                  href='https://twitter.com/mightymongooses'
-                  target='_blank'
-                  rel='noreferrer'
-                  className='social-link'
-                >
-                  <i className='fab fa-twitter' />
-                </a>
-              </li>
-              <li className='social-item'>
-                <a
-                  href='https://www.instagram.com/mightymongooses/'
-                  rel='noreferrer'
-                  className='social-link'
-                  target='_blank'
-                >
-                  <i className='fab fa-instagram' />
-                </a>
-              </li>
-              <li className='social-item'>
-                <a
-                  href='https://discord.gg/wJJMaDEKQF'
-                  target='_blank'
-                  rel='noreferrer'
-                  className='social-link'
-                >
-                  <Image src='./images/discord.png' alt='discord' />
-                </a>
-              </li>
-              <li className='social-item'>
-                <a
-                  href='https://opensea.io/'
-                  target='_blank'
-                  className='social-link'
-                  rel='noreferrer'
-                >
-                  <Image src='./images/opensea.png' alt='opensea' />
-                </a>
-              </li>
-              <li className='social-item'>
-                <a
-                  href='https://etherscan.io/'
-                  className='social-link'
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  <Image src='./images/ether-scan.png' alt='ether-scan' />
-                </a>
-              </li>
-            </ul>
-          </Navbar.Collapse>
+
           {!address && (
             <Button className='btn-connect' onClick={() => walletInfo()}>
               Connect to MetaMask

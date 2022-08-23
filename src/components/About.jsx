@@ -1,62 +1,304 @@
-import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import React, { useState, useEffect, useRef} from 'react';
+import { Container, Row, Col, Image} from 'react-bootstrap';
 import './About.scss';
+import Marquee from 'react-fast-marquee';
+import Wheel from 'lottery-wheel';
+import Button from 'react-bootstrap/Button';
 
 const About = () => {
+	const [img, setImg] = useState('');
+	const setLevel = (level) => {
+		if (level == 1) {
+			const wheel = new Wheel({
+				el: document.getElementById('wheel'),
+				data: [{
+					text: 'NFT1',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'SPECIAL',
+					color: '#ffdbc5',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'NFT2',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}],
+				draw: true,
+				buttonText: 'Play',
+				radius: 300,
+				onSuccess: (result) => {
+					if (result.text == 'SPECIAL')
+						setImg('./images/special.png');
+					if (result.text == 'EMPTY')
+						setImg('./images/empty.png');
+					if ((result.text != "SPECIAL") && (result.text != 'EMPTY')) {
+						setImg('./images/' + result.text.substr(3, 1) + '.png');
+
+					}
+				},
+				onButtonHover: () => {
+					setImg('');
+				}
+			});
+		}
+		if (level == 2) {
+			const wheel = new Wheel({
+				el: document.getElementById('wheel'),
+				data: [{
+					text: 'NFT1',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				},{
+					text: 'NFT2',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'SPECIAL',
+					color: '#ffdbc5',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'NFT3',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}, {
+					text: 'NFT4',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'EMPTY',
+					color: 'silver',
+					fontSize: 24
+				}],
+				draw: true,
+				buttonText: 'Play',
+				radius: 300,
+				onSuccess: (result) => {
+					if (result.text == 'SPECIAL')
+						setImg('./images/special.png');
+					if (result.text == 'EMPTY')
+						setImg('./images/empty.png');
+					if ((result.text != "SPECIAL") && (result.text != 'EMPTY')) {
+						setImg('./images/' + result.text.substr(3, 1) + '.png');
+					}
+				},
+				onButtonHover: () => {
+					setImg('');
+				}
+			});
+		}
+		if (level == 3) {
+			const wheel = new Wheel({
+				el: document.getElementById('wheel'),
+				data: [{
+					text: 'NFT1',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT2',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT3',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT4',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'SPECIAL',
+					color: '#ffdbc5',
+					fontSize: 24
+				}, {
+					text: 'NFT5',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT6',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT7',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT8',
+					color: '#ffffff',
+					fontSize: 24
+				}, {
+					text: 'NFT9',
+					color: '#ffffff',
+					fontSize: 24
+				}],
+				draw: true,
+				buttonText: 'Play',
+				radius: 300,
+				onSuccess: (result) => {
+					if (result.text == 'SPECIAL')
+						setImg('./images/special.png');
+					if (result.text == 'EMPTY')
+						setImg('./images/empty.png');
+					if ((result.text != "SPECIAL") && (result.text != 'EMPTY')) {
+						setImg('./images/' + result.text.substr(3, 1) + '.png');
+					}
+				},
+				onButtonHover: () => {
+					setImg('');
+				}
+			});
+		}
+	};
+	useEffect(() => {
+		const wheel = new Wheel({
+			el: document.getElementById('wheel'),
+			data: [{
+				text: 'NFT1',
+				color: '#ffffff',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'SPECIAL',
+				color: '#ffdbc5',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'NFT2',
+				color: '#ffffff',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}, {
+				text: 'EMPTY',
+				color: 'silver',
+				fontSize: 24
+			}],
+			draw: true,
+			buttonText: 'Play',
+			radius: 300,
+			onSuccess: (result) => {
+				if (result.text == 'SPECIAL')
+						setImg('./images/special.png');
+				if (result.text == 'EMPTY')
+					setImg('./images/empty.png');
+				if ((result.text != "SPECIAL") && (result.text != 'EMPTY')) {
+					setImg('./images/' + result.text.substr(3, 1) + '.png');
+				}
+			},
+			onButtonHover: () => {
+				setImg('');
+			}
+		  });
+	}, []);
+
+
 	return (
 		<section className="about" id="about">
 			<Container>
 				<Row>
-					<Col sm="12" md="12" lg="8">
-						<div className="about-caption">
-							<Image src="./images/content-head.png" alt="" />
-						</div>
-						<div className="about-content">
-							<p>
-								Mighty Mongooses NFT (MME) project was inspired by the Bored Ape Yacht Club. Bored Apes
-								Project created a big wave in the NFT world and we look to follow in their footsteps.
-								Mighty Mongooses club is a community who strongly believes in a bright crypto future.
-								Passion for NFTs connected our international team from Canada, Australia & Asia and
-								resulted in the creation of 8,888 Mighty Mongooses.{' '}
-							</p>
-							<p>
-								Mighty Mongooses are a collection of unique 4,444 Male Mongooses and 4,444 Female
-								Mongooses NFTs living on the Ethereum blockchain as ERC-721 tokens with an initial
-								purchasing cost of 0.07 ETH. Each Mongoose is unique and programmatically generated from
-								over 285 possible handcrafted attributes, including skin, clothing, facial expressions,
-								hand objects, and more. 
-							</p>
+					<Col lg="2">
+						<div className='button-group'>
+							<Button variant='outline-success' onClick={() => setLevel(1)}>Level 1</Button>{' '}
+							<br/><br/>
+							<Button variant='outline-success' onClick={() => setLevel(2)}>Level 2</Button>{' '}
+							<br/><br/>
+							<Button variant='outline-success' onClick={() => setLevel(3)}>Level 3</Button>{' '}
+							<br/><br/>
 						</div>
 					</Col>
-					<Col sm="12" md="12" lg="4">
-						<Image className="about-left-image" fluid src="./images/image-right.png" alt="" />
+					<Col lg="5">
+						<svg id="wheel"></svg>
 					</Col>
-				</Row>
-				<Row>
-					<Col sm="12" md="12">
-						<div className="about-content">
-							<p>
-								One of the coolest feature that we introduced in this project is the “Breeding” concept
-								where users will be able to collect & breed baby Mongooses. Our team thinks NFT
-								shouldn't stop on a .png file instead it should be like a brand and that's why we are
-								expanding into the concept of merchandise (shirts, cups, caps, phone cases with logos &
-								much more on the way). Later to the success, our project will have a mobile app for the
-								community members to meet & greet, check nearest attractions & restaurants, teams
-								upcoming projects, news about crypto & a custom user account panel to view our NFT's &
-								their traits. The app will give access to our concept games where all the holders can
-								play for FREEEE! Besides that, we are working hard to bring this project as soon as
-								possible to the NFT space.
-							</p>
-							<p>
-								<p>
-									Our roadmap has several milestones but the biggest ones are waiting near to the
-									sold-out. Check out our roadmap for the biggest give-away to our community and you
-									don’t want to miss those! Our team believes in a bright crypto future and we think
-									Mighty Mongooses is just a beginning and we would love you to stick around for the
-									ride.
-								</p>
-							</p>
-						</div>
+					<Col lg="5">
+						<img  class="resultImg" src={ img } style={{ width: '50%' }}></img>
 					</Col>
 				</Row>
 			</Container>

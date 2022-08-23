@@ -60,16 +60,8 @@ const Home = () => {
         <main>
           <Banner />
           <About />
-          <Mongoonomics />
-          <Rarity />
-          <Owership />
-          <Collections />
-          <RoadMap />
-          <OurStory />
-          <Faq />
         </main>
       )}
-      <Footer />
       {showWeb3Modal && (
         <Web3Modal
           handleConnectWallet={handleConnectWallet}
